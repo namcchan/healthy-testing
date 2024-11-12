@@ -22,7 +22,7 @@ const menuItems = [
 export function MenuDrawer() {
   const [open, setOpen] = useState(false);
   return (
-    <Sheet>
+    <Sheet onOpenChange={setOpen} open={open}>
       <SheetTrigger asChild>
         <button>
           <MenuIcon />
@@ -37,6 +37,7 @@ export function MenuDrawer() {
         <div className="grid py-4 divide-y divide-neutral-600">
           {menuItems.map((item, index) => (
             <Link
+              onClick={() => setOpen(false)}
               href={item.href}
               key={index}
               className="text-white w-full h-[72px] flex items-center text-lg hover:bg-dark-600 px-6"
